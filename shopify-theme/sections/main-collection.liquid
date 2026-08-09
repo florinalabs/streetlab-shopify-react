@@ -1,0 +1,53 @@
+<section class="page-width section-space">
+  <div class="collection-header">
+    <p class="eyebrow">{{ 'collections.general.collection' | t }}</p>
+    <h1>{{ collection.title | escape }}</h1>
+    {% if collection.description != blank %}<div class="rte">{{ collection.description }}</div>{% endif %}
+  </div>
+
+  {% if section.settings.show_sort %}
+    <form class="collection-sort" method="get">
+      <label for="SortBy">{{ 'collections.sorting.title' | t }}</label>
+      <select id="SortBy" name="sort_by" onchange="this.form.submit()">
+        {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
+        {% for option in collection.sort_options %}
+          <option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected{% endif %}>{{ option.name | escape }}</option>
+        {% endfor %}
+      </select>
+    </form>
+  {% endif %}
+
+  {% paginate collection.products by section.settings.products_per_page %}
+    <div class="product-grid">
+      {% for product in collection.products %}
+        {% render 'product-card', card_product: product %}
+      {% else %}
+        <p>{{ 'collections.general.no_matches' | t }}</p>
+      {% endfor %}
+    </div>
+    {% render 'pagination', paginate: paginate %}
+  {% endpaginate %}
+</section>
+
+{% schema %}
+{
+  "name": "Main collection",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_sort",
+      "label": "Show sorting",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 4,
+      "max": 24,
+      "step": 4,
+      "default": 12,
+      "label": "Products per page"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,45 @@
+<footer class="site-footer">
+  <div class="page-width footer-grid">
+    <div>
+      <div class="brand brand--footer">{{ section.settings.heading | escape }}</div>
+      <p>{{ section.settings.subheading | escape }}</p>
+    </div>
+
+    <nav aria-label="Footer navigation">
+      {% for link in section.settings.menu.links %}
+        <a href="{{ link.url }}">{{ link.title | escape }}</a>
+      {% endfor %}
+    </nav>
+
+    <div class="footer-meta">
+      <p>Liquid / Online Store 2.0</p>
+      <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name | escape }}</p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "STREETLAB"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Independent design. Everyday utility."
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "footer"
+    }
+  ]
+}
+{% endschema %}

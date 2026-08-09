@@ -1,0 +1,61 @@
+{
+  "accessibility": {
+    "skip_to_text": "Skip to content"
+  },
+  "general": {
+    "continue_shopping": "Continue shopping",
+    "meta": {
+      "tags": "Tagged {{ tags }}",
+      "page": "Page {{ page }}"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {{ current }} of {{ total }}"
+    },
+    "search": {
+      "search": "Search",
+      "title": "Search StreetLab",
+      "placeholder": "Search products",
+      "submit": "Search",
+      "results_with_count": "{{ count }} results for “{{ terms }}”"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to bag",
+      "sold_out": "Sold out",
+      "choose_options": "Choose an option",
+      "quantity": {
+        "label": "Quantity"
+      }
+    }
+  },
+  "collections": {
+    "general": {
+      "collection": "Collection",
+      "no_matches": "No products found"
+    },
+    "sorting": {
+      "title": "Sort by"
+    }
+  },
+  "sections": {
+    "cart": {
+      "title": "Your bag",
+      "items": "items",
+      "empty": "Your bag is empty",
+      "remove": "Remove",
+      "subtotal": "Subtotal",
+      "taxes_and_shipping_at_checkout": "Taxes and shipping calculated at checkout.",
+      "update": "Update bag",
+      "checkout": "Checkout"
+    }
+  },
+  "templates": {
+    "404": {
+      "title": "Page not found",
+      "subtext": "The page you were looking for does not exist."
+    }
+  }
+}

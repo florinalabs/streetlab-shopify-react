@@ -1,0 +1,50 @@
+<header class="site-header">
+  <div class="page-width site-header__inner">
+    <a class="brand" href="{{ routes.root_url }}" aria-label="{{ shop.name | escape }}">
+      {% if settings.logo != blank %}
+        {{ settings.logo | image_url: width: 360 | image_tag: class: 'brand__image', loading: 'eager', widths: '120,180,240,360', alt: shop.name }}
+      {% else %}
+        {{ section.settings.logo_text | default: shop.name | escape }}<span>®</span>
+      {% endif %}
+    </a>
+
+    <nav class="main-nav" aria-label="Primary navigation">
+      {% for link in section.settings.menu.links %}
+        <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title | escape }}</a>
+      {% endfor %}
+    </nav>
+
+    <div class="header-actions">
+      {% if section.settings.show_search %}
+        <a href="{{ routes.search_url }}">{{ 'general.search.search' | t }}</a>
+      {% endif %}
+      <a href="{{ routes.cart_url }}">{{ 'sections.cart.title' | t }} <span class="cart-count">{{ cart.item_count }}</span></a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text",
+      "default": "STREETLAB"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show search link",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

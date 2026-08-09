@@ -1,0 +1,22 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "settings": {
+        "text": "FREE METRO MANILA SHIPPING OVER ₱3,000",
+        "link": ""
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_text": "STREETLAB",
+        "menu": "main-menu",
+        "show_search": true
+      }
+    }
+  },
+  "order": ["announcement", "header"]
+}
